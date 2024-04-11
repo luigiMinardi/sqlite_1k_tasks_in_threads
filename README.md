@@ -19,7 +19,7 @@ python -m venv .venv && source .venv/bin/activate
 ### Install dependecies
 
 ```bash
-pip install --upgrade pip && pip install -r requirements.txt --dry-run --ignore-installed
+pip install --upgrade pip && pip install -r requirements.txt --ignore-installed
 ```
 
 ### Run the script
