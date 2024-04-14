@@ -18,4 +18,8 @@ jobs:
         with: 
           python-version: '3.12'
 
+      - name: Run Tests
+      - run: ./test.sh
+
+      - name: Run Script
       - run: ./run.sh
