@@ -8,16 +8,18 @@ import random
 from rich.progress import Progress, TaskID
 from rich.console import Console
 
+console = Console()
+
 def find_or_create_user_table(cur: sqlite3.Cursor) -> None:
     res = cur.execute("SELECT name FROM sqlite_master")
     result = res.fetchall()
     for i in result:
         table_name = "".join(i)
         if table_name == "user":
-            console.log("table found")
+            console.log(f"user table found")
             return
     cur.execute("CREATE TABLE user(email, username, created_at, updated_at)")
-    console.log("table created")
+    console.log("user table created")
 
 
 def find_or_create_db_and_table(name: str) -> None:
@@ -65,7 +67,6 @@ def run_tasks(db_name: str, workers: int, num_tasks: int) -> None:
 
 
 if __name__ == "__main__":
-    console = Console()
     workers = 10
     num_tasks = 1000
 
